@@ -34,11 +34,13 @@ app.controller("MainCtrl", ['$scope', function($scope){
   };
 
   $scope.add = function() {
-    $scope.tasks.push({
-      completed: false,
-      name: $scope.new_task_name,
-    });
-    $scope.new_task_name = null;
+    if( $scope.new_task_name ) {
+      $scope.tasks.push({
+        completed: false,
+        name: $scope.new_task_name,
+      });
+      $scope.new_task_name = null;
+    }
   };
 
 }]);
